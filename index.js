@@ -28,7 +28,12 @@ module.exports.plugins = [
   require('remark-lint-rule-style'),
   require('remark-lint-table-pipes'),
   [require('remark-lint-blockquote-indentation'), 2],
-  [require('remark-lint-checkbox-character-style'), {'checked': 'x', 'unchecked': ' '}],
+  [
+    require('remark-lint-checkbox-character-style'),
+    {
+      'checked': 'x', 'unchecked': ' '
+    }
+  ],
   [require('remark-lint-code-block-style'), 'fenced'],
   [require('remark-lint-fenced-code-marker'), '`'],
   [require('remark-lint-file-extension'), 'md'],
@@ -36,4 +41,4 @@ module.exports.plugins = [
   [require('remark-lint-heading-style'), 'atx'],
   [require('remark-lint-strong-marker'), '*'],
   [require('remark-lint-table-cell-padding'), 'padded']
-]
+];
