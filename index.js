@@ -5,7 +5,7 @@
 module.exports.plugins = [
   require('remark-lint'),
   require('remark-lint-checkbox-content-indent'),
-  require('remark-lint-definition-spacing')
+  require('remark-lint-definition-spacing'),
   require('remark-lint-fenced-code-flag'),
   require('remark-lint-final-definition'),
   require('remark-lint-final-newline'),
@@ -36,4 +36,4 @@ module.exports.plugins = [
   [require('remark-lint-heading-style'), 'atx'],
   [require('remark-lint-strong-marker'), '*'],
   [require('remark-lint-table-cell-padding'), 'padded']
-}
+]
