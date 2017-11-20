@@ -47,6 +47,7 @@
     "remark-lint-no-table-indentation": "^1.0.0",
     "remark-lint-no-tabs": "^1.0.0",
     "remark-lint-no-unused-definitions": "^1.0.0",
+    "remark-lint-prohibited-strings": "^1.0.0",
     "remark-lint-rule-style": "^1.0.0",
     "remark-lint-strong-marker": "^1.0.0",
     "remark-lint-table-cell-padding": "^1.0.0",
