@@ -10,6 +10,12 @@ module.exports.plugins = [
   require('remark-lint-final-definition'),
   require('remark-lint-final-newline'),
   require('remark-lint-hard-break-spaces'),
+  require('remark-lint-hard-break-spaces'),
+  [
+    require('remark-lint-list-item-indent'),
+    'space'
+  ],
+  require('remark-lint-maximum-line-length'),
   require('remark-lint-no-auto-link-without-protocol'),
   require('remark-lint-no-blockquote-without-caret'),
   require('remark-lint-no-duplicate-definitions'),
@@ -19,7 +25,6 @@ module.exports.plugins = [
   require('remark-lint-no-heading-content-indent'),
   require('remark-lint-no-heading-indent'),
   require('remark-lint-no-inline-padding'),
-  require('remark-lint-maximum-line-length'),
   require('remark-lint-no-multiple-toplevel-headings'),
   require('remark-lint-no-shell-dollars'),
   require('remark-lint-no-shortcut-reference-image'),
