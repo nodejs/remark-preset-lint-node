@@ -30,6 +30,7 @@ module.exports.plugins = [
   require('remark-lint-no-shortcut-reference-image'),
   require('remark-lint-no-table-indentation'),
   require('remark-lint-no-tabs'),
+  require('remark-lint-no-trailing-spaces'),
   require('remark-lint-no-unused-definitions'),
   require('remark-lint-rule-style'),
   require('remark-lint-table-pipes'),
