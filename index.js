@@ -17,7 +17,7 @@ module.exports.plugins = [
   ],
   require('remark-lint-maximum-line-length'),
   require('remark-lint-no-auto-link-without-protocol'),
-  require('remark-lint-no-blockquote-without-caret'),
+  require('remark-lint-no-blockquote-without-marker'),
   require('remark-lint-no-duplicate-definitions'),
   require('remark-lint-no-file-name-articles'),
   require('remark-lint-no-file-name-consecutive-dashes'),
