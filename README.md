@@ -5,3 +5,8 @@ remark preset to configure remark-lint with settings for nodejs/node
 ```console
 $ npm install remark-preset-lint-node
 ```
+
+## Test
+```console
+$ npm test
+```
