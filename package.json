@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/watilde/remark-preset-lint-node.git"
+    "url": "git+https://github.com/nodejs/remark-preset-lint-node.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["remark"],
+  "author": "Daijiro Wachi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/watilde/remark-preset-lint-node/issues"
+    "url": "https://github.com/nodejs/remark-preset-lint-node/issues"
   },
-  "homepage": "https://github.com/watilde/remark-preset-lint-node#readme",
+  "homepage": "https://github.com/nodejs/remark-preset-lint-node#readme",
   "dependencies": {
     "remark-lint": "^6.0.0",
     "remark-lint-blockquote-indentation": "^1.0.0",
