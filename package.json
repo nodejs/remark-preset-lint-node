@@ -4,19 +4,21 @@
   "description": "remark preset to configure remark-lint with settings for nodejs/node",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "prettier index.js --write"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/watilde/remark-preset-lint-node.git"
+    "url": "git+https://github.com/nodejs/remark-preset-lint-node.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "remark"
+  ],
+  "author": "Daijiro Wachi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/watilde/remark-preset-lint-node/issues"
+    "url": "https://github.com/nodejs/remark-preset-lint-node/issues"
   },
-  "homepage": "https://github.com/watilde/remark-preset-lint-node#readme",
+  "homepage": "https://github.com/nodejs/remark-preset-lint-node#readme",
   "dependencies": {
     "remark-lint": "^6.0.0",
     "remark-lint-blockquote-indentation": "^1.0.0",
@@ -55,5 +57,8 @@
     "remark-lint-strong-marker": "^1.0.0",
     "remark-lint-table-cell-padding": "^1.0.0",
     "remark-lint-table-pipes": "^1.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.15.2"
   }
 }
