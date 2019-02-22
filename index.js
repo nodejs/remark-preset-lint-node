@@ -47,6 +47,7 @@ module.exports.plugins = [
   [
     require("remark-lint-prohibited-strings"),
     [
+      { no: "End-Of-Life", yes: "End-of-Life" },
       { no: "Github", yes: "GitHub" },
       { no: "Javascript", yes: "JavaScript" },
       { no: "Node.JS", yes: "Node.js" },
