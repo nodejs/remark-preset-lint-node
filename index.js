@@ -2,6 +2,23 @@
 
 "use strict";
 
+const rule = require("unified-lint-rule");
+const noTrailingSpaces = rule("remark-lint:no-trailing-spaces", (ast, file) => {
+  var lines = file.toString().split(/\r?\n/);
+  for (var i = 0; i < lines.length; i++) {
+    var currentLine = lines[i];
+    var lineIndex = i + 1;
+    if (/\s$/.test(currentLine)) {
+      file.message("Remove trailing whitespace", {
+        position: {
+          start: { line: lineIndex, column: currentLine.length + 1 },
+          end: { line: lineIndex }
+        }
+      });
+    }
+  }
+});
+
 module.exports.plugins = [
   require("remark-lint"),
   require("remark-lint-checkbox-content-indent"),
@@ -27,7 +44,7 @@ module.exports.plugins = [
   require("remark-lint-no-shortcut-reference-image"),
   require("remark-lint-no-table-indentation"),
   require("remark-lint-no-tabs"),
-  require("remark-lint-no-trailing-spaces"),
+  noTrailingSpaces,
   require("remark-lint-no-unused-definitions"),
   require("remark-lint-rule-style"),
   require("remark-lint-table-pipes"),
