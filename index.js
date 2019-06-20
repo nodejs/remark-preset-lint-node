@@ -52,6 +52,8 @@ module.exports.plugins = [
       { no: "Github", yes: "GitHub" },
       { no: "Javascript", yes: "JavaScript" },
       { no: "Node.JS", yes: "Node.js" },
+      { no: "Note that", yes: "<nothing>" },
+      { no: "note that", yes: "<nothing>" },
       { no: "Rfc", yes: "RFC" },
       { no: "[Rr][Ff][Cc]\\d+", yes: "RFC <number>" },
       { no: "rfc", yes: "RFC" },
