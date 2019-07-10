@@ -57,6 +57,8 @@ module.exports.plugins = [
       { no: "Rfc", yes: "RFC" },
       { no: "[Rr][Ff][Cc]\\d+", yes: "RFC <number>" },
       { no: "rfc", yes: "RFC" },
+      { no: "UNIX", yes: "Unix" },
+      { no: "unix", yes: "Unix" },
       { no: "v8", yes: "V8" }
     ]
   ],
