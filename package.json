@@ -4,7 +4,8 @@
   "description": "remark preset to configure remark-lint with settings for nodejs/node",
   "main": "index.js",
   "scripts": {
-    "test": "prettier index.js --write"
+    "test": "prettier index.js --write",
+    "travis": "remark tmp/doc/**/*.md --use . --frail --quiet"
   },
   "repository": {
     "type": "git",
@@ -60,6 +61,7 @@
     "remark-lint-table-pipes": "^1.0.0"
   },
   "devDependencies": {
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.2",
+    "remark-cli": "^7.0.0"
   }
 }
