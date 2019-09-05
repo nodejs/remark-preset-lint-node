@@ -2,19 +2,34 @@
 
 "use strict";
 
+// Add in rules alphabetically
 module.exports.plugins = [
   require("remark-lint"),
+  [require("remark-lint-blockquote-indentation"), 2],
+  [
+    require("remark-lint-checkbox-character-style"),
+    {
+      checked: "x",
+      unchecked: " "
+    }
+  ],
   require("remark-lint-checkbox-content-indent"),
+  [require("remark-lint-code-block-style"), "fenced"],
   require("remark-lint-definition-spacing"),
   require("remark-lint-fenced-code-flag"),
+  [require("remark-lint-fenced-code-marker"), "`"],
+  [require("remark-lint-file-extension"), "md"],
+  [require("remark-lint-first-heading-level"), 1],
   require("remark-lint-final-definition"),
   require("remark-lint-final-newline"),
   require("remark-lint-hard-break-spaces"),
   require("remark-lint-hard-break-spaces"),
+  [require("remark-lint-heading-style"), "atx"],
   [require("remark-lint-list-item-indent"), "space"],
   require("remark-lint-maximum-line-length"),
   require("remark-lint-no-auto-link-without-protocol"),
   require("remark-lint-no-blockquote-without-marker"),
+  require("remark-lint-no-consecutive-blank-lines"),
   require("remark-lint-no-duplicate-definitions"),
   require("remark-lint-no-file-name-articles"),
   require("remark-lint-no-file-name-consecutive-dashes"),
@@ -29,21 +44,6 @@ module.exports.plugins = [
   require("remark-lint-no-tabs"),
   require("remark-lint-no-trailing-spaces"),
   require("remark-lint-no-unused-definitions"),
-  require("remark-lint-rule-style"),
-  require("remark-lint-table-pipes"),
-  [require("remark-lint-blockquote-indentation"), 2],
-  [
-    require("remark-lint-checkbox-character-style"),
-    {
-      checked: "x",
-      unchecked: " "
-    }
-  ],
-  [require("remark-lint-code-block-style"), "fenced"],
-  [require("remark-lint-fenced-code-marker"), "`"],
-  [require("remark-lint-file-extension"), "md"],
-  [require("remark-lint-first-heading-level"), 1],
-  [require("remark-lint-heading-style"), "atx"],
   [
     require("remark-lint-prohibited-strings"),
     [
@@ -62,6 +62,8 @@ module.exports.plugins = [
       { no: "v8", yes: "V8" }
     ]
   ],
+  require("remark-lint-rule-style"),
   [require("remark-lint-strong-marker"), "*"],
-  [require("remark-lint-table-cell-padding"), "padded"]
+  [require("remark-lint-table-cell-padding"), "padded"],
+  require("remark-lint-table-pipes")
 ];
