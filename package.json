@@ -58,7 +58,8 @@
     "remark-lint-rule-style": "^1.0.3",
     "remark-lint-strong-marker": "^1.0.3",
     "remark-lint-table-cell-padding": "^1.0.4",
-    "remark-lint-table-pipes": "^1.0.3"
+    "remark-lint-table-pipes": "^1.0.3",
+    "remark-lint-unordered-list-marker-style": "^1.0.3"
   },
   "devDependencies": {
     "prettier": "^1.18.2",
