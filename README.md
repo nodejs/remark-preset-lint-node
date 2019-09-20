@@ -1,6 +1,6 @@
 # remark-preset-lint-node
 
-[![Build Status](https://travis-ci.com/nodejs/remark-preset-lint-node.svg?branch=master)](https://travis-ci.com/nodejs/remark-preset-lint-node)
+[![Build Status](https://github.com/nodejs/remark-preset-lint-node/workflows/Tests/badge.svg)](https://github.com/nodejs/remark-preset-lint-node/actions)
 
 remark preset to configure remark-lint with settings for nodejs/node
 
