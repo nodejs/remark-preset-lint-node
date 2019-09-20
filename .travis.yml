@@ -2,6 +2,6 @@ language: node_js
 
 node_js: node
 
-before_script: git clone https://github.com/nodejs/node.git tmp
+before_script: git clone https://github.com/nodejs/node.git tmp --depth 1
 
 script: npm run travis
