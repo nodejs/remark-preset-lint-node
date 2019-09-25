@@ -5,6 +5,8 @@
 // Add in rules alphabetically
 module.exports.plugins = [
   require("remark-lint"),
+  // Leave preset at the top so it can be overridden
+  require("remark-preset-lint-recommended"),
   [require("remark-lint-blockquote-indentation"), 2],
   [
     require("remark-lint-checkbox-character-style"),
