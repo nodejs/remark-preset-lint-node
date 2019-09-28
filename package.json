@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "prettier index.js --write",
-    "travis": "remark tmp/doc/**/*.md --use . --frail --quiet"
+    "test-ci": "remark tmp/doc/**/*.md --use . --frail --quiet"
   },
   "repository": {
     "type": "git",
