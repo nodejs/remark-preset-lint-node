@@ -43,7 +43,7 @@ module.exports.plugins = [
       { no: "End-Of-Life", yes: "End-of-Life" },
       { no: "End-of-life", yes: "End-of-Life" },
       { no: "Github", yes: "GitHub" },
-      { no: "Javascript", yes: "JavaScript" },
+      { no: "[Jj]avascript", yes: "JavaScript" },
       { no: "Node.JS", yes: "Node.js" },
       { no: "node.js", yes: "Node.js" },
       { no: "[Nn]ote that", yes: "<nothing>" },
