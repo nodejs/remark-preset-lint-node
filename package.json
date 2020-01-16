@@ -4,8 +4,10 @@
   "description": "remark preset to configure remark-lint with settings for nodejs/node",
   "main": "index.js",
   "scripts": {
+    "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
+    "remark": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use . -fq",
     "test": "prettier index.js --write",
-    "test-ci": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use . -fq"
+    "test-ci": "npm run lockfile-lint && npm run remark"
   },
   "repository": {
     "type": "git",
@@ -58,7 +60,8 @@
     "remark-preset-lint-recommended": "^3.0.3"
   },
   "devDependencies": {
-    "prettier": "^1.18.2",
-    "remark-cli": "^7.0.0"
+    "lockfile-lint": "^3.0.5",
+    "prettier": "^1.19.1",
+    "remark-cli": "^7.0.1"
   }
 }
