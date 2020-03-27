@@ -60,7 +60,7 @@
     "remark-preset-lint-recommended": "^3.0.3"
   },
   "devDependencies": {
-    "lockfile-lint": "^3.0.18",
+    "lockfile-lint": "^4.2.2",
     "prettier": "^2.0.2",
     "remark-cli": "^7.0.1"
   }
