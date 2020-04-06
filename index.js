@@ -31,7 +31,6 @@ module.exports.plugins = [
   require("remark-lint-no-file-name-consecutive-dashes"),
   require("remark-lint-no-file-name-outer-dashes"),
   require("remark-lint-no-heading-indent"),
-  [require("remark-lint-no-literal-urls"), false],
   require("remark-lint-no-multiple-toplevel-headings"),
   require("remark-lint-no-shell-dollars"),
   require("remark-lint-no-table-indentation"),
