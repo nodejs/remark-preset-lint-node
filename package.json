@@ -50,7 +50,7 @@
     "remark-lint-no-table-indentation": "^2.0.0",
     "remark-lint-no-tabs": "^2.0.0",
     "remark-lint-no-trailing-spaces": "^2.0.1",
-    "remark-lint-prohibited-strings": "^1.2.1",
+    "remark-lint-prohibited-strings": "^1.5.1",
     "remark-lint-rule-style": "^2.0.0",
     "remark-lint-strong-marker": "^2.0.0",
     "remark-lint-table-cell-padding": "^2.0.0",

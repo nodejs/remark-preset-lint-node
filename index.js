@@ -12,8 +12,8 @@ module.exports.plugins = [
     require("remark-lint-checkbox-character-style"),
     {
       checked: "x",
-      unchecked: " "
-    }
+      unchecked: " ",
+    },
   ],
   require("remark-lint-checkbox-content-indent"),
   [require("remark-lint-code-block-style"), "fenced"],
@@ -39,27 +39,23 @@ module.exports.plugins = [
   [
     require("remark-lint-prohibited-strings"),
     [
-      { no: "End-Of-Life", yes: "End-of-Life" },
-      { no: "End-of-life", yes: "End-of-Life" },
-      { no: "Github", yes: "GitHub" },
+      { yes: "End-of-Life" },
+      { yes: "GitHub" },
       { no: "hostname", yes: "host name" },
-      { no: "[Jj]avascript", yes: "JavaScript" },
+      { yes: "JavaScript" },
       { no: "Node", yes: "Node.js" },
-      { no: "Node\\.JS", yes: "Node.js" },
-      { no: "node\\.js", yes: "Node.js" },
+      { yes: "Node.js" },
       { no: "Node\\.js's?", yes: "the Node.js" },
       { no: "[Nn]ote that", yes: "<nothing>" },
-      { no: "Rfc", yes: "RFC" },
+      { yes: "RFC" },
       { no: "[Rr][Ff][Cc]\\d+", yes: "RFC <number>" },
-      { no: "rfc", yes: "RFC" },
-      { no: "UNIX", yes: "Unix" },
-      { no: "unix", yes: "Unix" },
-      { no: "v8", yes: "V8" }
-    ]
+      { yes: "Unix" },
+      { yes: "V8" },
+    ],
   ],
   require("remark-lint-rule-style"),
   [require("remark-lint-strong-marker"), "*"],
   [require("remark-lint-table-cell-padding"), "padded"],
   require("remark-lint-table-pipes"),
-  [require("remark-lint-unordered-list-marker-style"), "*"]
+  [require("remark-lint-unordered-list-marker-style"), "*"],
 ];
