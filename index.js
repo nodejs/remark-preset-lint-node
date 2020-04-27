@@ -1,4 +1,4 @@
-// @see https://github.com/nodejs/node/blob/master/doc/STYLE_GUIDE.md
+// @see https://github.com/nodejs/node/blob/master/doc/guides/doc-style-guide.md
 
 "use strict";
 
