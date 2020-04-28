@@ -45,6 +45,7 @@ module.exports.plugins = [
       { yes: "JavaScript" },
       { no: "Node", yes: "Node.js" },
       { yes: "Node.js" },
+      { no: "Node[Jj][Ss]", yes: "Node.js" },
       { no: "Node\\.js's?", yes: "the Node.js" },
       { no: "[Nn]ote that", yes: "<nothing>" },
       { yes: "RFC" },
