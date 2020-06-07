@@ -28,6 +28,7 @@ module.exports.plugins = [
         "console",
         "cpp",
         "diff",
+        "http",
         "js",
         "json",
         "markdown",
