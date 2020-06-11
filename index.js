@@ -21,7 +21,7 @@ module.exports.plugins = [
   [
     require("remark-lint-fenced-code-flag"),
     {
-      "flags": [
+      flags: [
         "bash",
         "c",
         "coffee",
