@@ -18,7 +18,7 @@ npm test
 
 ## Add new language or grammar
 
-**Adding the language to the linter**
+### Adding the language to the linter
 
 1. PR this repo adding the language/grammar
 1. Bump this package version, publish it
