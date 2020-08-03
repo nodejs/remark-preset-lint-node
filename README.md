@@ -18,6 +18,10 @@ npm test
 
 ## Add new language or grammar
 
+### Adding the language to the documentation style guide
+
+1. PR the [nodejs/node](https://github.com/nodejs/node) repo adding the language/grammar to the [documentation style guide](https://github.com/nodejs/node/blob/master/doc/guides/doc-style-guide.md)
+
 ### Adding the language to the linter
 
 1. PR this repo adding the language/grammar
