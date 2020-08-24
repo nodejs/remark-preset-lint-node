@@ -34,6 +34,7 @@ module.exports.plugins = [
         "markdown",
         "powershell",
         "r",
+        "sh",
         "text",
       ],
     },
