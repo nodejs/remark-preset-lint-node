@@ -40,7 +40,7 @@
     "remark-lint-heading-style": "^2.0.0",
     "remark-lint-list-item-indent": "^2.0.0",
     "remark-lint-maximum-line-length": "^2.0.0",
-    "remark-lint-no-consecutive-blank-lines": "^2.0.0",
+    "remark-lint-no-consecutive-blank-lines": "^3.0.0",
     "remark-lint-no-file-name-articles": "^1.0.4",
     "remark-lint-no-file-name-consecutive-dashes": "^1.0.4",
     "remark-lint-no-file-name-outer-dashes": "^1.0.5",
