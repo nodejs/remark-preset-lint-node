@@ -47,7 +47,7 @@
     "remark-lint-no-heading-indent": "^3.0.0",
     "remark-lint-no-multiple-toplevel-headings": "^2.0.0",
     "remark-lint-no-shell-dollars": "^2.0.0",
-    "remark-lint-no-table-indentation": "^2.0.0",
+    "remark-lint-no-table-indentation": "^3.0.0",
     "remark-lint-no-tabs": "^2.0.0",
     "remark-lint-no-trailing-spaces": "^2.0.1",
     "remark-lint-prohibited-strings": "^1.5.2",
