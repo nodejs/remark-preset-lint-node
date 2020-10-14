@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
-    "remark": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use . -fq",
+    "remark": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use . --use gfm -fq",
     "test": "prettier index.js --write",
     "test-ci": "npm run lockfile-lint && npm run remark"
   },
@@ -64,6 +64,7 @@
   "devDependencies": {
     "lockfile-lint": "^4.2.2",
     "prettier": "^2.0.2",
-    "remark-cli": "^9.0.0"
+    "remark-cli": "^9.0.0",
+    "remark-gfm": "^1.0.0"
   }
 }
