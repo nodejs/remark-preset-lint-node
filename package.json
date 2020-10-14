@@ -61,6 +61,6 @@
   "devDependencies": {
     "lockfile-lint": "^4.2.2",
     "prettier": "^2.0.2",
-    "remark-cli": "^8.0.0"
+    "remark-cli": "^9.0.0"
   }
 }
