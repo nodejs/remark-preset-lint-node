@@ -218,7 +218,7 @@ function validateYAMLComments(tree, file) {
   visit(tree, "html", function visitor(node) {
     if (!node.value.startsWith("<!-- YAML\n")) return;
     try {
-      const meta = yaml.safeLoad("#" + node.value.slice(0, -"-->".length));
+      const meta = yaml.load("#" + node.value.slice(0, -"-->".length));
 
       validateMeta(node, file, meta);
     } catch (e) {
