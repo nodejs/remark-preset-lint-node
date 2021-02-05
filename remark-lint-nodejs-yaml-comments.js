@@ -22,11 +22,11 @@ const validVersionNumberRegex = /^v\d+\.\d+\.\d+$/;
 const prUrlRegex = new RegExp("^https://github.com/nodejs/node/pull/\\d+$");
 const privatePRUrl = "https://github.com/nodejs-private/node-private/pull/";
 
-let releasedVersion;
+let releasedVersions;
 let invalidVersionMessage = "version(s) must respect the pattern `vx.x.x` or";
 if (process.env.NODE_RELEASED_VERSIONS) {
   console.log("Using release list from env...");
-  releasedVersion = process.env.NODE_RELEASED_VERSIONS.split(",").map(
+  releasedVersions = process.env.NODE_RELEASED_VERSIONS.split(",").map(
     (v) => `v${v}`
   );
   invalidVersionMessage = `version not listed in the changelogs, `;
@@ -55,11 +55,11 @@ function containsInvalidVersionNumber(version) {
   if (version === undefined || version === VERSION_PLACEHOLDER) return false;
 
   if (
-    releasedVersion &&
+    releasedVersions &&
     // Always ignore 0.0.x and 0.1.x release numbers:
     (version[1] !== "0" || (version[3] !== "0" && version[3] !== "1"))
   )
-    return !releasedVersion.includes(version);
+    return !releasedVersions.includes(version);
 
   return !validVersionNumberRegex.test(version);
 }
