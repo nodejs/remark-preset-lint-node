@@ -29,7 +29,6 @@ if (process.env.NODE_RELEASED_VERSIONS) {
   releasedVersion = process.env.NODE_RELEASED_VERSIONS.split(",").map(
     (v) => `v${v}`
   );
-  releasedVersion.push(undefined, VERSION_PLACEHOLDER);
   invalidVersionMessage = `version not listed in the changelogs, `;
 }
 invalidVersionMessage += `use the placeholder \`${VERSION_PLACEHOLDER}\``;
@@ -53,16 +52,16 @@ function containsInvalidVersionNumber(version) {
     return version.some(containsInvalidVersionNumber);
   }
 
-  if (version?.[1] === "0" && (version[3] === "0" || version[3] === "1")) {
-    return !validVersionNumberRegex.test(version);
-  }
+  if (version === undefined || version === VERSION_PLACEHOLDER) return false;
 
-  return (
-    !releasedVersion?.includes(version) ??
-    (version !== undefined &&
-      version !== VERSION_PLACEHOLDER &&
-      !validVersionNumberRegex.test(version))
-  );
+  if (
+    releasedVersion &&
+    // Always ignore 0.0.x and 0.1.x release numbers:
+    (version[1] !== "0" || (version[3] !== "0" && version[3] !== "1"))
+  )
+    return !releasedVersion.includes(version);
+
+  return !validVersionNumberRegex.test(version);
 }
 const getValidSemver = (version) =>
   version === VERSION_PLACEHOLDER ? MAX_SAFE_SEMVER_VERSION : version;
