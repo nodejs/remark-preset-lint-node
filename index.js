@@ -63,7 +63,7 @@ module.exports.plugins = [
       { yes: "GitHub" },
       { no: "hostname", yes: "host name" },
       { yes: "JavaScript" },
-      { no: "Node", yes: "Node.js" },
+      { no: "Node", yes: "Node.js", ignoreNextTo: "-API" },
       { yes: "Node.js" },
       { no: "Node[Jj][Ss]", yes: "Node.js" },
       { no: "Node\\.js's?", yes: "the Node.js" },
