@@ -24,6 +24,7 @@ module.exports.plugins = [
       flags: [
         "bash",
         "c",
+        "cjs",
         "coffee",
         "console",
         "cpp",
@@ -32,6 +33,7 @@ module.exports.plugins = [
         "js",
         "json",
         "markdown",
+        "mjs",
         "powershell",
         "r",
         "text",
