@@ -7,7 +7,7 @@ const { pathToFileURL } = require("url");
 const rule = require("unified-lint-rule");
 
 function* getLinksRecursively(node) {
-  if (typeof node.url === "string" && node.url[0] !== "#") {
+  if (node.url) {
     yield node;
   }
   for (const child of node.children || []) {
@@ -19,17 +19,19 @@ function validateLinks(tree, vfile) {
   const currentFileURL = pathToFileURL(path.join(vfile.cwd, vfile.path));
   let previousDefinitionLabel;
   for (const node of getLinksRecursively(tree)) {
-    const targetURL = new URL(node.url, currentFileURL);
-    if (targetURL.protocol === "file:" && !fs.existsSync(targetURL)) {
-      vfile.message("Broken link", node);
-    } else if (targetURL.pathname === currentFileURL.pathname) {
-      const expected = node.url.includes("#")
-        ? node.url.slice(node.url.indexOf("#"))
-        : "#";
-      vfile.message(
-        `Self-reference must start with hash (expected "${expected}", got "${node.url}")`,
-        node
-      );
+    if (node.url[0] !== "#") {
+      const targetURL = new URL(node.url, currentFileURL);
+      if (targetURL.protocol === "file:" && !fs.existsSync(targetURL)) {
+        vfile.message("Broken link", node);
+      } else if (targetURL.pathname === currentFileURL.pathname) {
+        const expected = node.url.includes("#")
+          ? node.url.slice(node.url.indexOf("#"))
+          : "#";
+        vfile.message(
+          `Self-reference must start with hash (expected "${expected}", got "${node.url}")`,
+          node
+        );
+      }
     }
     if (node.type === "definition") {
       if (previousDefinitionLabel && previousDefinitionLabel > node.label) {
