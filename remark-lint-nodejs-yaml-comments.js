@@ -184,7 +184,7 @@ function validateMeta(node, file, meta) {
 
     case kWrongKeyOrder:
       file.message(
-        "YAML dictionary keys should be respect this order: " +
+        "YAML dictionary keys should respect this order: " +
           allowedKeys.join(", "),
         node
       );
