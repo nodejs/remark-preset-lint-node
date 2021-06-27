@@ -57,6 +57,7 @@ module.exports.plugins = [
   require("remark-lint-no-table-indentation"),
   require("remark-lint-no-tabs"),
   require("remark-lint-no-trailing-spaces"),
+  require("./remark-lint-nodejs-links.js"),
   require("./remark-lint-nodejs-yaml-comments.js"),
   [
     require("remark-lint-prohibited-strings"),
