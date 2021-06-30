@@ -24,6 +24,7 @@
   "homepage": "https://github.com/nodejs/remark-preset-lint-node#readme",
   "files": [
     "index.js",
+    "remark-lint-nodejs-links.js",
     "remark-lint-nodejs-yaml-comments.js"
   ],
   "dependencies": {
