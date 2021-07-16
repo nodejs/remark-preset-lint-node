@@ -21,7 +21,7 @@ function validateLinks(tree, vfile) {
   for (const node of getLinksRecursively(tree)) {
     if (node.url[0] !== "#") {
       const targetURL = new URL(node.url, currentFileURL);
-      if (targetURL.protocol === "file:" && !fs.existsSync(targetURL)) {
+      if (targetURL.protocol === "file:" && !fs.existsSync(currentFileURL)) {
         vfile.message("Broken link", node);
       } else if (targetURL.pathname === currentFileURL.pathname) {
         const expected = node.url.includes("#")
