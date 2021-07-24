@@ -4,10 +4,11 @@
   "description": "remark preset to configure remark-lint with settings for nodejs/node",
   "main": "index.js",
   "scripts": {
+    "fix": "eslint . --fix && prettier . -w",
+    "lint": "eslint . && prettier . -c",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
     "remark": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/src/**/*.md\" \"tmp/test/README.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use . --use gfm -fq",
-    "test": "prettier *.js --write",
-    "test-ci": "npm run lockfile-lint && npm run remark"
+    "test": "npm run lint && npm run lockfile-lint && npm run remark"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nodejs/remark-preset-lint-node/issues"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   },
   "homepage": "https://github.com/nodejs/remark-preset-lint-node#readme",
   "files": [
@@ -65,6 +69,10 @@
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "lockfile-lint": "^4.2.2",
     "prettier": "^2.0.2",
     "remark-cli": "^9.0.0",

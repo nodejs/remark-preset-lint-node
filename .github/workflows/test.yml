@@ -3,7 +3,7 @@ name: Tests
 on:
   push:
     branches-ignore:
-    - "dependabot/**"
+      - "dependabot/**"
   pull_request:
 
 env:
@@ -36,4 +36,4 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm run test-ci
+        run: npm run test
