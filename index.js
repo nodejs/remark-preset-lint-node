@@ -46,7 +46,7 @@ module.exports.plugins = [
   [require("remark-lint-first-heading-level"), 1],
   [require("remark-lint-heading-style"), "atx"],
   [require("remark-lint-list-item-indent"), "space"],
-  [require('remark-lint-mdash-style'), '-'],
+  [require("remark-lint-mdash-style"), "-"],
   require("remark-lint-match-punctuation"),
   require("remark-lint-maximum-line-length"),
   require("remark-lint-no-consecutive-blank-lines"),
