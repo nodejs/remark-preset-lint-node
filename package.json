@@ -28,8 +28,11 @@
   "homepage": "https://github.com/nodejs/remark-preset-lint-node#readme",
   "files": [
     "index.js",
+    "getLinksRecursively.js",
+    "remark-lint-alphabetize-references.js",
     "remark-lint-nodejs-links.js",
-    "remark-lint-nodejs-yaml-comments.js"
+    "remark-lint-nodejs-yaml-comments.js",
+    "remark-lint-self-links.js"
   ],
   "dependencies": {
     "js-yaml": "^4.0.0",

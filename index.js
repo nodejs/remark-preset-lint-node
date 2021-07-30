@@ -7,6 +7,7 @@ module.exports.plugins = [
   require("remark-lint"),
   // Leave preset at the top so it can be overridden
   require("remark-preset-lint-recommended"),
+  require("./remark-lint-alphabetize-references.js"),
   [require("remark-lint-blockquote-indentation"), 2],
   [
     require("remark-lint-checkbox-character-style"),
@@ -79,6 +80,7 @@ module.exports.plugins = [
     ],
   ],
   require("remark-lint-rule-style"),
+  require("./remark-lint-self-links"),
   [require("remark-lint-strong-marker"), "*"],
   [require("remark-lint-table-cell-padding"), "padded"],
   require("remark-lint-table-pipes"),
