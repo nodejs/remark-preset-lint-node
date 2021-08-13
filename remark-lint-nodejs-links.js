@@ -1,10 +1,8 @@
-"use strict";
+import fs from "fs";
+import path from "path";
+import { pathToFileURL } from "url";
 
-const fs = require("fs");
-const path = require("path");
-const { pathToFileURL } = require("url");
-
-const rule = require("unified-lint-rule");
+import { lintRule } from "unified-lint-rule";
 
 function* getLinksRecursively(node) {
   if (node.url) {
@@ -45,4 +43,9 @@ function validateLinks(tree, vfile) {
   }
 }
 
-module.exports = rule("remark-lint:nodejs-links", validateLinks);
+const remarkLintNodejsLinks = lintRule(
+  "remark-lint:nodejs-links",
+  validateLinks
+);
+
+export default remarkLintNodejsLinks;
