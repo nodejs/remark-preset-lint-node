@@ -1,10 +1,8 @@
-"use strict";
-
-const yaml = require("js-yaml");
-const visit = require("unist-util-visit");
-const rule = require("unified-lint-rule");
-const semverParse = require("semver/functions/parse");
-const semverLt = require("semver/functions/lt");
+import yaml from "js-yaml";
+import { visit } from "unist-util-visit";
+import { lintRule } from "unified-lint-rule";
+import semverParse from "semver/functions/parse.js";
+import semverLt from "semver/functions/lt.js";
 
 const allowedKeys = [
   "added",
@@ -235,4 +233,9 @@ function validateYAMLComments(tree, file) {
   });
 }
 
-module.exports = rule("remark-lint:nodejs-yaml-comments", validateYAMLComments);
+const remarkLintNodejsYamlComments = lintRule(
+  "remark-lint:nodejs-yaml-comments",
+  validateYAMLComments
+);
+
+export default remarkLintNodejsYamlComments;

@@ -1,25 +1,49 @@
 // @see https://github.com/nodejs/node/blob/master/doc/guides/doc-style-guide.md
 
-"use strict";
+import remarkPresetLintRecommended from "remark-preset-lint-recommended";
+import remarkLintBlockquoteIndentation from "remark-lint-blockquote-indentation";
+import remarkLintCheckboxCharacterStyle from "remark-lint-checkbox-character-style";
+import remarkLintCheckboxContentIndent from "remark-lint-checkbox-content-indent";
+import remarkLintCodeBlockStyle from "remark-lint-code-block-style";
+import remarkLintDefinitionSpacing from "remark-lint-definition-spacing";
+import remarkLintFencedCodeFlag from "remark-lint-fenced-code-flag";
+import remarkLintFencedCodeMarker from "remark-lint-fenced-code-marker";
+import remarkLintFileExtension from "remark-lint-file-extension";
+import remarkLintFinalDefinition from "remark-lint-final-definition";
+import remarkLintFirstHeadingLevel from "remark-lint-first-heading-level";
+import remarkLintHeadingStyle from "remark-lint-heading-style";
+import remarkLintListItemIndent from "remark-lint-list-item-indent";
+import remarkLintMaximumLineLength from "remark-lint-maximum-line-length";
+import remarkLintNoConsecutiveBlankLines from "remark-lint-no-consecutive-blank-lines";
+import remarkLintNoFileNameArticles from "remark-lint-no-file-name-articles";
+import remarkLintNoFileNameConsecutiveDashes from "remark-lint-no-file-name-consecutive-dashes";
+import remarkLintNofileNameOuterDashes from "remark-lint-no-file-name-outer-dashes";
+import remarkLintNoHeadingIndent from "remark-lint-no-heading-indent";
+import remarkLintNoMultipleToplevelHeadings from "remark-lint-no-multiple-toplevel-headings";
+import remarkLintNoShellDollars from "remark-lint-no-shell-dollars";
+import remarkLintNoTableIndentation from "remark-lint-no-table-indentation";
+import remarkLintNoTabs from "remark-lint-no-tabs";
+import remarkLintNoTrailingSpaces from "remark-lint-no-trailing-spaces";
+import remarkLintNodejsLinks from "./remark-lint-nodejs-links.js";
+import remarkLintNodejsYamlComments from "./remark-lint-nodejs-yaml-comments.js";
+import remarkLintProhibitedStrings from "remark-lint-prohibited-strings";
+import remarkLintRuleStyle from "remark-lint-rule-style";
+import remarkLintStrongMarker from "remark-lint-strong-marker";
+import remarkLintTableCellPadding from "remark-lint-table-cell-padding";
+import remarkLintTablePipes from "remark-lint-table-pipes";
+import remarkLintUnorderedListMarkerStyle from "remark-lint-unordered-list-marker-style";
 
 // Add in rules alphabetically
-module.exports.plugins = [
-  require("remark-lint"),
+const remarkPresetLintNode = [
   // Leave preset at the top so it can be overridden
-  require("remark-preset-lint-recommended"),
-  [require("remark-lint-blockquote-indentation"), 2],
+  remarkPresetLintRecommended,
+  [remarkLintBlockquoteIndentation, 2],
+  [remarkLintCheckboxCharacterStyle, { checked: "x", unchecked: " " }],
+  remarkLintCheckboxContentIndent,
+  [remarkLintCodeBlockStyle, "fenced"],
+  remarkLintDefinitionSpacing,
   [
-    require("remark-lint-checkbox-character-style"),
-    {
-      checked: "x",
-      unchecked: " ",
-    },
-  ],
-  require("remark-lint-checkbox-content-indent"),
-  [require("remark-lint-code-block-style"), "fenced"],
-  require("remark-lint-definition-spacing"),
-  [
-    require("remark-lint-fenced-code-flag"),
+    remarkLintFencedCodeFlag,
     {
       flags: [
         "bash",
@@ -40,27 +64,27 @@ module.exports.plugins = [
       ],
     },
   ],
-  [require("remark-lint-fenced-code-marker"), "`"],
-  [require("remark-lint-file-extension"), "md"],
-  require("remark-lint-final-definition"),
-  [require("remark-lint-first-heading-level"), 1],
-  [require("remark-lint-heading-style"), "atx"],
-  [require("remark-lint-list-item-indent"), "space"],
-  require("remark-lint-maximum-line-length"),
-  require("remark-lint-no-consecutive-blank-lines"),
-  require("remark-lint-no-file-name-articles"),
-  require("remark-lint-no-file-name-consecutive-dashes"),
-  require("remark-lint-no-file-name-outer-dashes"),
-  require("remark-lint-no-heading-indent"),
-  require("remark-lint-no-multiple-toplevel-headings"),
-  require("remark-lint-no-shell-dollars"),
-  require("remark-lint-no-table-indentation"),
-  require("remark-lint-no-tabs"),
-  require("remark-lint-no-trailing-spaces"),
-  require("./remark-lint-nodejs-links.js"),
-  require("./remark-lint-nodejs-yaml-comments.js"),
+  [remarkLintFencedCodeMarker, "`"],
+  [remarkLintFileExtension, "md"],
+  remarkLintFinalDefinition,
+  [remarkLintFirstHeadingLevel, 1],
+  [remarkLintHeadingStyle, "atx"],
+  [remarkLintListItemIndent, "space"],
+  remarkLintMaximumLineLength,
+  remarkLintNoConsecutiveBlankLines,
+  remarkLintNoFileNameArticles,
+  remarkLintNoFileNameConsecutiveDashes,
+  remarkLintNofileNameOuterDashes,
+  remarkLintNoHeadingIndent,
+  remarkLintNoMultipleToplevelHeadings,
+  remarkLintNoShellDollars,
+  remarkLintNoTableIndentation,
+  remarkLintNoTabs,
+  remarkLintNoTrailingSpaces,
+  remarkLintNodejsLinks,
+  remarkLintNodejsYamlComments,
   [
-    require("remark-lint-prohibited-strings"),
+    remarkLintProhibitedStrings,
     [
       { yes: "End-of-Life" },
       { yes: "GitHub" },
@@ -78,9 +102,11 @@ module.exports.plugins = [
       { yes: "V8" },
     ],
   ],
-  require("remark-lint-rule-style"),
-  [require("remark-lint-strong-marker"), "*"],
-  [require("remark-lint-table-cell-padding"), "padded"],
-  require("remark-lint-table-pipes"),
-  [require("remark-lint-unordered-list-marker-style"), "*"],
+  remarkLintRuleStyle,
+  [remarkLintStrongMarker, "*"],
+  [remarkLintTableCellPadding, "padded"],
+  remarkLintTablePipes,
+  [remarkLintUnorderedListMarkerStyle, "*"],
 ];
+
+export default remarkPresetLintNode;
