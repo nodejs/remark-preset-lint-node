@@ -8,7 +8,10 @@
     "fix": "eslint . --fix && prettier . -w",
     "lint": "eslint . && prettier . -c",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
-    "remark": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/src/**/*.md\" \"tmp/test/README.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use ./index.js --use gfm -fq",
+    "remark": "npm run remark-local && npm run remark-expected-failure && npm run remark-node-core",
+    "remark-node-core": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/src/**/*.md\" \"tmp/test/README.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use ./index.js --use gfm -fq",
+    "remark-local": "remark *.md --use ./index.js --use gfm -fq",
+    "remark-expected-failure": "! remark test/fail.md --use ./index.js --use gfm -fq || (echo \"Error: failed to detect lint problems\" && exit 1)",
     "test": "npm run lint && npm run lockfile-lint && npm run remark"
   },
   "repository": {
