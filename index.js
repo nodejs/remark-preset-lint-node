@@ -1,4 +1,4 @@
-// @see https://github.com/nodejs/node/blob/master/doc/guides/doc-style-guide.md
+// @see https://github.com/nodejs/node/blob/HEAD/doc/guides/doc-style-guide.md
 
 import remarkPresetLintRecommended from "remark-preset-lint-recommended";
 import remarkLintBlockquoteIndentation from "remark-lint-blockquote-indentation";
@@ -34,7 +34,7 @@ import remarkLintTablePipes from "remark-lint-table-pipes";
 import remarkLintUnorderedListMarkerStyle from "remark-lint-unordered-list-marker-style";
 
 // Add in rules alphabetically
-const remarkPresetLintNode = [
+const plugins = [
   // Leave preset at the top so it can be overridden
   remarkPresetLintRecommended,
   [remarkLintBlockquoteIndentation, 2],
@@ -108,5 +108,7 @@ const remarkPresetLintNode = [
   remarkLintTablePipes,
   [remarkLintUnorderedListMarkerStyle, "*"],
 ];
+
+const remarkPresetLintNode = { plugins };
 
 export default remarkPresetLintNode;

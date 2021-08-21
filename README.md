@@ -48,6 +48,7 @@ version numbers for the `nodejs-yaml-comments` rule.
 For better compatibility with the nodejs/node changelogs, there are a few
 exceptions:
 
-- Version numbers `^0.0.0 || ^0.1.0` are not validated using the provided list,
-  they are validating using the `vx.x.x` pattern.
-- `REPLACEME` placeholder is always valid, regardless it's in the list or not.
+* Version numbers `^0.0.0 || ^0.1.0` are not validated using the provided list.
+  They are validated using the `vx.x.x` pattern.
+* `REPLACEME` placeholder is always valid, regardless if it's in the list or
+  not.
