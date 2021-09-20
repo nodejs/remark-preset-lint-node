@@ -109,6 +109,12 @@ const plugins = [
   [remarkLintUnorderedListMarkerStyle, "*"],
 ];
 
-const remarkPresetLintNode = { plugins };
+const settings = {
+  emphasis: "_",
+  listItemIndent: 1,
+  tightDefinitions: true,
+};
+
+const remarkPresetLintNode = { plugins, settings };
 
 export default remarkPresetLintNode;
