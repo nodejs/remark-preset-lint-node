@@ -12,7 +12,7 @@
     "remark-node-core": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/src/**/*.md\" \"tmp/test/README.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use ./index.js --use gfm -fq",
     "remark-local": "remark *.md --use ./index.js --use gfm -fq",
     "remark-expected-failure": "! remark test/fail.md --use ./index.js --use gfm -fq || (echo \"Error: failed to detect lint problems\" && exit 1)",
-    "remark-changes": "remark test/change.md --use ./index.js | diff test/changed.md -",
+    "remark-changes": "remark test/input.md --use ./index.js | diff test/output.md -",
     "test": "npm run lint && npm run lockfile-lint && npm run remark"
   },
   "repository": {
