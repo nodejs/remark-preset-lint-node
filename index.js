@@ -1,5 +1,6 @@
 // @see https://github.com/nodejs/node/blob/HEAD/doc/guides/doc-style-guide.md
 
+import remarkGfm from "remark-gfm";
 import remarkPresetLintRecommended from "remark-preset-lint-recommended";
 import remarkLintBlockquoteIndentation from "remark-lint-blockquote-indentation";
 import remarkLintCheckboxCharacterStyle from "remark-lint-checkbox-character-style";
@@ -35,7 +36,8 @@ import remarkLintUnorderedListMarkerStyle from "remark-lint-unordered-list-marke
 
 // Add in rules alphabetically
 const plugins = [
-  // Leave preset at the top so it can be overridden
+  // Leave GFM and preset at the top so they can be overridden
+  remarkGfm,
   remarkPresetLintRecommended,
   [remarkLintBlockquoteIndentation, 2],
   [remarkLintCheckboxCharacterStyle, { checked: "x", unchecked: " " }],
