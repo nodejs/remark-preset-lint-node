@@ -38,6 +38,7 @@
   ],
   "dependencies": {
     "js-yaml": "^4.0.0",
+    "remark-gfm": "^2.0.0",
     "remark-lint-blockquote-indentation": "^3.0.0",
     "remark-lint-checkbox-character-style": "^4.0.0",
     "remark-lint-checkbox-content-indent": "^4.0.0",
@@ -79,7 +80,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "lockfile-lint": "^4.2.2",
     "prettier": "^2.0.2",
-    "remark-cli": "^10.0.0",
-    "remark-gfm": "^2.0.0"
+    "remark-cli": "^10.0.0"
   }
 }
