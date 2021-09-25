@@ -8,11 +8,12 @@
     "fix": "eslint . --fix && prettier . -w",
     "lint": "eslint . && prettier . -c",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
-    "remark": "npm run remark-local && npm run remark-expected-failure && npm run remark-changes && npm run remark-node-core",
-    "remark-node-core": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/src/**/*.md\" \"tmp/test/README.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use ./index.js -fq",
+    "remark": "npm run remark-local && npm run remark-ok && npm run remark-fail && npm run remark-change && npm run remark-node-core",
+    "remark-change": "remark test/input.md --use ./index.js | diff test/output.md -",
     "remark-local": "remark *.md --use ./index.js -fq",
-    "remark-expected-failure": "! remark test/fail.md --use ./index.js -fq || (echo \"Error: failed to detect lint problems\" && exit 1)",
-    "remark-changes": "remark test/input.md --use ./index.js | diff test/output.md -",
+    "remark-node-core": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/src/**/*.md\" \"tmp/test/README.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use ./index.js -fq",
+    "remark-fail": "! remark test/fail.md --use ./index.js -fq || (echo \"Error: failed to detect lint problems\" && exit 1)",
+    "remark-ok": "remark test/ok.md --use ./index.js -fq",
     "test": "npm run lint && npm run lockfile-lint && npm run remark"
   },
   "repository": {

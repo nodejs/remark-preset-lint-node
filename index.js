@@ -34,9 +34,8 @@ import remarkLintTableCellPadding from "remark-lint-table-cell-padding";
 import remarkLintTablePipes from "remark-lint-table-pipes";
 import remarkLintUnorderedListMarkerStyle from "remark-lint-unordered-list-marker-style";
 
-// Add in rules alphabetically
+// Add in rules alphabetically after Gfm and PresetLintRecommended.
 const plugins = [
-  // Leave GFM and preset at the top so they can be overridden
   remarkGfm,
   remarkPresetLintRecommended,
   [remarkLintBlockquoteIndentation, 2],
@@ -73,6 +72,7 @@ const plugins = [
   [remarkLintHeadingStyle, "atx"],
   [remarkLintListItemIndent, "space"],
   remarkLintMaximumLineLength,
+  ["remark-lint-no-auto-link-without-protocol", false],
   remarkLintNoConsecutiveBlankLines,
   remarkLintNoFileNameArticles,
   remarkLintNoFileNameConsecutiveDashes,
