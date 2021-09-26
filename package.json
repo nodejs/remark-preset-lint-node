@@ -71,7 +71,7 @@
     "remark-preset-lint-recommended": "^6.0.0",
     "semver": "^7.3.2",
     "unified-lint-rule": "^2.0.0",
-    "unist-util-visit": "^4.0.0"
+    "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
     "eslint": "^7.31.0",
