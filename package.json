@@ -8,12 +8,10 @@
     "fix": "eslint . --fix && prettier . -w",
     "lint": "eslint . && prettier . -c",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
-    "remark": "npm run remark-local && npm run remark-ok && npm run remark-fail && npm run remark-change && npm run remark-node-core",
-    "remark-change": "remark test/input.md --use ./index.js | diff test/output.md -",
+    "remark": "npm run remark-unit && npm run remark-local && npm run remark-node-core",
     "remark-local": "remark *.md --use ./index.js -fq",
     "remark-node-core": "remark \"tmp/*.md\" \"tmp/doc/**/*.md\" \"tmp/lib/**/*.md\" \"tmp/benchmark/**/*.md\" \"tmp/src/**/*.md\" \"tmp/test/README.md\" \"tmp/test/[a-eg-z]*/**/*.md\" \"tmp/tools/doc/*.md\" \"tmp/tools/icu/**/*.md\" --use ./index.js -fq",
-    "remark-fail": "! remark test/fail.md --use ./index.js -fq || (echo \"Error: failed to detect lint problems\" && exit 1)",
-    "remark-ok": "remark test/ok.md --use ./index.js -fq",
+    "remark-unit": "node test/test.js",
     "test": "npm run lint && npm run lockfile-lint && npm run remark"
   },
   "repository": {
@@ -75,12 +73,13 @@
     "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.31.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "lockfile-lint": "^4.2.2",
     "prettier": "^2.0.2",
-    "remark-cli": "^10.0.0"
+    "remark-cli": "^10.0.0",
+    "remark-parse": "^10.0.0"
   }
 }
