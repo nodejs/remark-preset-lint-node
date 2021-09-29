@@ -35,10 +35,12 @@ const linter = unified()
 
 // // Test that incorrectly-formatted markdown is turned into correctly-formatted markdown.
 (async () => {
-  const file = await read(new URL("./fixtures/input.md", import.meta.url));
+  const file = await read(
+    new URL("./fixtures/formatting-input.md", import.meta.url)
+  );
   const result = await linter.process(file);
   const expected = await fs.promises.readFile(
-    new URL("./fixtures/output.md", import.meta.url)
+    new URL("./fixtures/formatting-output.md", import.meta.url)
   );
   assert.strictEqual(result.toString(), expected.toString());
 })().catch((e) => {
