@@ -19,7 +19,10 @@ const handleError = (err) => {
   process.exit(1);
 }
 
-  // Test that correctly-formatted markdown is ok.
+// Top-level await is not supported in Node.js 12.x. Once we no longer support
+// 12.x, this test file can be improved with top-level await.
+
+// Test that correctly-formatted markdown is ok.
 (async () => {
   const file = await read(new URL("./fixtures/ok.md", import.meta.url));
   const result = await linter.process(file);
