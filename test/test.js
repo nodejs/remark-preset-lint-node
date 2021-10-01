@@ -14,25 +14,24 @@ const linter = unified()
   .use(presetLintNode)
   .use(remarkStringify);
 
-// Test that correctly-formatted markdown is ok.
+const handleError = (err) => {
+  console.error(err);
+  process.exit(1);
+}
+
+  // Test that correctly-formatted markdown is ok.
 (async () => {
   const file = await read(new URL("./fixtures/ok.md", import.meta.url));
   const result = await linter.process(file);
   assert.strictEqual(result.messages.length, 0, reporter(result));
-})().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+})().catch(handleError);
 
 // Test that incorrectly-formatted markdown fails.
 (async () => {
   const file = await read(new URL("./fixtures/fail.md", import.meta.url));
   const result = await linter.process(file);
   assert.strictEqual(result.messages.length, 1, reporter(result));
-})().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+})().catch(handleError);
 
 // Test that incorrectly-formatted markdown is turned into correctly-formatted markdown.
 (async () => {
@@ -44,7 +43,4 @@ const linter = unified()
     new URL("./fixtures/formatting-output.md", import.meta.url)
   );
   assert.strictEqual(result.toString(), expected.toString());
-})().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+})().catch(handleError);
