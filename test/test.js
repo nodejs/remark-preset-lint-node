@@ -1,6 +1,6 @@
-import assert from "node:assert";
-import fs from "node:fs";
-import process from "node:process";
+import assert from "assert";
+import fs from "fs";
+import process from "process";
 
 import { unified } from "unified";
 import remarkParse from "remark-parse";
@@ -9,14 +9,32 @@ import presetLintNode from "../index.js";
 import { read } from "to-vfile";
 import { reporter } from "vfile-reporter";
 
+import fixturesUrl from "./fixtures/fixturesUrl.js";
+
 const linter = unified()
   .use(remarkParse)
   .use(presetLintNode)
   .use(remarkStringify);
 
+const expectedCalls = [];
+function mustCall(message = "The Promise never fulfilled") {
+  const errorWrapper = { error: new Error(message) };
+  expectedCalls.push(errorWrapper);
+  return () => {
+    errorWrapper.error = undefined;
+  };
+}
+process.on("exit", () => {
+  for (const { error } of expectedCalls) {
+    if (error) {
+      throw error;
+    }
+  }
+});
+
 const handleError = (err) => {
   console.error(err);
-  process.exit(1);
+  process.exitCode = 1;
 };
 
 // Top-level await is not supported in Node.js 12.x. Once we no longer support
@@ -24,26 +42,24 @@ const handleError = (err) => {
 
 // Test that correctly-formatted markdown is ok.
 (async () => {
-  const file = await read(new URL("./fixtures/ok.md", import.meta.url));
+  const file = await read(new URL("./ok.md", fixturesUrl));
   const result = await linter.process(file);
   assert.strictEqual(result.messages.length, 0, reporter(result));
-})().catch(handleError);
+})().then(mustCall(), handleError);
 
 // Test that incorrectly-formatted markdown fails.
 (async () => {
-  const file = await read(new URL("./fixtures/fail.md", import.meta.url));
+  const file = await read(new URL("./fail.md", fixturesUrl));
   const result = await linter.process(file);
   assert.strictEqual(result.messages.length, 1, reporter(result));
-})().catch(handleError);
+})().then(mustCall(), handleError);
 
 // Test that incorrectly-formatted markdown is turned into correctly-formatted markdown.
 (async () => {
-  const file = await read(
-    new URL("./fixtures/formatting-input.md", import.meta.url)
-  );
+  const file = await read(new URL("./formatting-input.md", fixturesUrl));
   const result = await linter.process(file);
   const expected = await fs.promises.readFile(
-    new URL("./fixtures/formatting-output.md", import.meta.url)
+    new URL("./formatting-output.md", fixturesUrl)
   );
   assert.strictEqual(result.toString(), expected.toString());
-})().catch(handleError);
+})().then(mustCall(), handleError);
