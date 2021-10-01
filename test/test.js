@@ -17,7 +17,7 @@ const linter = unified()
 const handleError = (err) => {
   console.error(err);
   process.exit(1);
-}
+};
 
 // Top-level await is not supported in Node.js 12.x. Once we no longer support
 // 12.x, this test file can be improved with top-level await.
