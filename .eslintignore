@@ -1,1 +1,5 @@
+# ESLint can't parse the test file because it uses `import.meta`. We'd need to
+# switch to babel-eslint parser or find a way to avoid `import.meta`.
+# Refs: https://github.com/eslint/eslint/issues/11189#issuecomment-446666614
+test/
 tmp/
