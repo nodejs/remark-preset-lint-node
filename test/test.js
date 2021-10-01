@@ -1,5 +1,6 @@
-import assert from "assert";
-import fs from "fs";
+import assert from "node:assert";
+import fs from "node:fs";
+import process from "node:process";
 
 import { unified } from "unified";
 import remarkParse from "remark-parse";
