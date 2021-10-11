@@ -23,6 +23,7 @@ function mustCall(message = "The Promise never fulfilled") {
   };
 }
 process.on("exit", () => {
+  if (process.exitCode !== 0) return;
   for (const { error } of expectedCalls) {
     if (error) {
       throw error;
