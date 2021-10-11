@@ -9,8 +9,6 @@ import presetLintNode from "../index.js";
 import { read } from "to-vfile";
 import { reporter } from "vfile-reporter";
 
-import fixturesUrl from "./fixtures/fixturesUrl.js";
-
 const linter = unified()
   .use(remarkParse)
   .use(presetLintNode)
@@ -42,24 +40,26 @@ const handleError = (err) => {
 
 // Test that correctly-formatted markdown is ok.
 (async () => {
-  const file = await read(new URL("./ok.md", fixturesUrl));
+  const file = await read(new URL("./fixtures/ok.md", import.meta.url));
   const result = await linter.process(file);
   assert.strictEqual(result.messages.length, 0, reporter(result));
 })().then(mustCall(), handleError);
 
 // Test that incorrectly-formatted markdown fails.
 (async () => {
-  const file = await read(new URL("./fail.md", fixturesUrl));
+  const file = await read(new URL("./fixtures/fail.md", import.meta.url));
   const result = await linter.process(file);
   assert.strictEqual(result.messages.length, 1, reporter(result));
 })().then(mustCall(), handleError);
 
 // Test that incorrectly-formatted markdown is turned into correctly-formatted markdown.
 (async () => {
-  const file = await read(new URL("./formatting-input.md", fixturesUrl));
+  const file = await read(
+    new URL("./fixtures/formatting-input.md", import.meta.url)
+  );
   const result = await linter.process(file);
   const expected = await fs.promises.readFile(
-    new URL("./formatting-output.md", fixturesUrl)
+    new URL("./fixtures/formatting-output.md", import.meta.url)
   );
   assert.strictEqual(result.toString(), expected.toString());
 })().then(mustCall(), handleError);
