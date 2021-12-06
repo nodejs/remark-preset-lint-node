@@ -62,6 +62,7 @@ const plugins = [
         "powershell",
         "r",
         "text",
+        "ts",
       ],
     },
   ],
