@@ -22,7 +22,7 @@ npm test
 
 1. PR the [nodejs/node](https://github.com/nodejs/node) repo adding the
    language/grammar to the
-   [documentation style guide](https://github.com/nodejs/node/blob/master/doc/guides/doc-style-guide.md).
+   [documentation style guide](https://github.com/nodejs/node/blob/HEAD/doc/README.md).
 
 ### Adding the language to the linter
 
