@@ -1,4 +1,4 @@
-// @see https://github.com/nodejs/node/blob/HEAD/doc/guides/doc-style-guide.md
+// @see https://github.com/nodejs/node/blob/HEAD/doc/README.md
 
 import remarkGfm from "remark-gfm";
 import remarkPresetLintRecommended from "remark-preset-lint-recommended";
