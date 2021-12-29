@@ -1,13 +1,12 @@
-import assert from "assert";
+import { strict as assert } from "assert";
 import fs from "fs";
 import process from "process";
-
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
-import presetLintNode from "../index.js";
 import { read } from "to-vfile";
 import { reporter } from "vfile-reporter";
+import presetLintNode from "../index.js";
 
 const linter = unified()
   .use(remarkParse)
@@ -22,6 +21,7 @@ function mustCall(message = "The Promise never fulfilled") {
     errorWrapper.error = undefined;
   };
 }
+
 process.on("exit", () => {
   if (process.exitCode !== 0) return;
   for (const { error } of expectedCalls) {
@@ -43,7 +43,7 @@ const handleError = (err) => {
 (async () => {
   const file = await read(new URL("./fixtures/ok.md", import.meta.url));
   const result = await linter.process(file);
-  assert.strictEqual(result.messages.length, 0, reporter(result));
+  assert.equal(result.messages.length, 0, reporter(result));
 })().then(mustCall(), handleError);
 
 // Test that incorrectly-formatted markdown fails.
@@ -52,7 +52,7 @@ const handleError = (err) => {
     new URL("./fixtures/fail-prohibited-string.md", import.meta.url)
   );
   const result = await linter.process(file);
-  assert.strictEqual(result.messages.length, 1, reporter(result));
+  assert.equal(result.messages.length, 1, reporter(result));
 })().then(mustCall(), handleError);
 
 // Test that incorrectly-formatted YAML comment fails.
@@ -61,7 +61,7 @@ const handleError = (err) => {
     new URL("./fixtures/fail-nodejs-yaml-comments.md", import.meta.url)
   );
   const result = await linter.process(file);
-  assert.strictEqual(result.messages.length, 1, reporter(result));
+  assert.equal(result.messages.length, 1, reporter(result));
 })().then(mustCall(), handleError);
 
 // Test that incorrectly-formatted markdown is turned into correctly-formatted markdown.
@@ -73,5 +73,5 @@ const handleError = (err) => {
   const expected = await fs.promises.readFile(
     new URL("./fixtures/formatting-output.md", import.meta.url)
   );
-  assert.strictEqual(result.toString(), expected.toString());
+  assert.equal(result.toString(), expected.toString());
 })().then(mustCall(), handleError);

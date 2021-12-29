@@ -8,6 +8,7 @@ function* getLinksRecursively(node) {
   if (node.url) {
     yield node;
   }
+
   for (const child of node.children || []) {
     yield* getLinksRecursively(child);
   }
@@ -31,6 +32,7 @@ function validateLinks(tree, vfile) {
         );
       }
     }
+
     if (node.type === "definition") {
       if (previousDefinitionLabel && previousDefinitionLabel > node.label) {
         vfile.message(
@@ -38,6 +40,7 @@ function validateLinks(tree, vfile) {
           node
         );
       }
+
       previousDefinitionLabel = node.label;
     }
   }

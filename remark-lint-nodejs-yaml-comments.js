@@ -1,3 +1,4 @@
+import process from "process";
 import yaml from "js-yaml";
 import { visit } from "unist-util-visit";
 import { lintRule } from "unified-lint-rule";
@@ -27,8 +28,9 @@ if (process.env.NODE_RELEASED_VERSIONS) {
   releasedVersions = process.env.NODE_RELEASED_VERSIONS.split(",").map(
     (v) => `v${v}`
   );
-  invalidVersionMessage = `version not listed in the changelogs, `;
+  invalidVersionMessage = "version not listed in the changelogs, ";
 }
+
 invalidVersionMessage += `use the placeholder \`${VERSION_PLACEHOLDER}\``;
 
 const kContainsIllegalKey = Symbol("illegal key");
@@ -41,13 +43,14 @@ function unorderedKeys(meta) {
     if (keyIndex <= previousKeyIndex) {
       return keyIndex === -1 ? kContainsIllegalKey : kWrongKeyOrder;
     }
+
     previousKeyIndex = keyIndex;
   }
 }
 
 function containsInvalidVersionNumber(version) {
   if (Array.isArray(version)) {
-    return version.some(containsInvalidVersionNumber);
+    return version.some((v) => containsInvalidVersionNumber(v));
   }
 
   if (version === undefined || version === VERSION_PLACEHOLDER) return false;
@@ -61,6 +64,7 @@ function containsInvalidVersionNumber(version) {
 
   return !validVersionNumberRegex.test(version);
 }
+
 const getValidSemver = (version) =>
   version === VERSION_PLACEHOLDER ? MAX_SAFE_SEMVER_VERSION : version;
 function areVersionsUnordered(versions) {
@@ -86,9 +90,13 @@ function invalidChangesKeys(change) {
     if (keys[index] !== changesExpectedKeys[index]) return true;
   }
 }
+
 function validateSecurityChange(file, node, change, index) {
   if ("commit" in change) {
-    if (typeof change.commit !== "string" || isNaN(`0x${change.commit}`)) {
+    if (
+      typeof change.commit !== "string" ||
+      Number.isNaN(`0x${change.commit}`)
+    ) {
       file.message(
         `changes[${index}]: Ill-formed security change commit ID`,
         node
@@ -100,6 +108,7 @@ function validateSecurityChange(file, node, change, index) {
       delete change.commit;
     }
   }
+
   if (invalidChangesKeys(change)) {
     const securityChangeExpectedKeys = [...changesExpectedKeys];
     securityChangeExpectedKeys[0] += "[, commit]";
@@ -110,14 +119,13 @@ function validateSecurityChange(file, node, change, index) {
     );
   }
 }
+
 function validateChanges(file, node, changes) {
   if (!Array.isArray(changes))
     return file.message("`changes` must be a YAML list", node);
 
   const changesVersions = [];
-  for (let index = 0; index < changes.length; index++) {
-    const change = changes[index];
-
+  for (const [index, change] of changes.entries()) {
     const isAncient =
       typeof change.version === "string" && change.version.startsWith("v0.");
     const isSecurityChange =
@@ -216,19 +224,21 @@ function validateMeta(node, file, meta) {
 }
 
 function validateYAMLComments(tree, file) {
-  visit(tree, "html", function visitor(node) {
+  visit(tree, "html", (node) => {
     if (node.value.startsWith("<!--YAML\n"))
       file.message(
         "Expected `<!-- YAML`, found `<!--YAML`. Please add a space",
         node
       );
+
     if (!node.value.startsWith("<!-- YAML\n")) return;
+
     try {
       const meta = yaml.load("#" + node.value.slice(0, -"-->".length));
 
       validateMeta(node, file, meta);
-    } catch (e) {
-      file.message(e, node);
+    } catch (error) {
+      file.message(error, node);
     }
   });
 }
