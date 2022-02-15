@@ -101,6 +101,7 @@ const plugins = [
       { yes: "RFC" },
       { no: "[Rr][Ff][Cc]\\d+", yes: "RFC <number>" },
       { yes: "Unix" },
+      { yes: "Valgrind" },
       { yes: "V8" },
     ],
   ],
