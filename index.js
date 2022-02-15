@@ -102,6 +102,7 @@ const plugins = [
       { no: "[Rr][Ff][Cc]\\d+", yes: "RFC <number>" },
       { yes: "Unix" },
       { yes: "V8" },
+      {no: "valgrind", yes: "Valgrind"}
     ],
   ],
   remarkLintRuleStyle,
