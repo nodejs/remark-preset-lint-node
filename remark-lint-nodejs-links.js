@@ -27,7 +27,7 @@ function validateLinks(tree, vfile) {
           : "#";
         vfile.message(
           `Self-reference must start with hash (expected "${expected}", got "${node.url}")`,
-          node
+          node,
         );
       }
     }
@@ -35,7 +35,7 @@ function validateLinks(tree, vfile) {
       if (previousDefinitionLabel && previousDefinitionLabel > node.label) {
         vfile.message(
           `Unordered reference ("${node.label}" should be before "${previousDefinitionLabel}")`,
-          node
+          node,
         );
       }
       previousDefinitionLabel = node.label;
@@ -45,7 +45,7 @@ function validateLinks(tree, vfile) {
 
 const remarkLintNodejsLinks = lintRule(
   "remark-lint:nodejs-links",
-  validateLinks
+  validateLinks,
 );
 
 export default remarkLintNodejsLinks;
