@@ -49,7 +49,7 @@ const handleError = (err) => {
 // Test that incorrectly-formatted markdown fails.
 (async () => {
   const file = await read(
-    new URL("./fixtures/fail-prohibited-string.md", import.meta.url)
+    new URL("./fixtures/fail-prohibited-string.md", import.meta.url),
   );
   const result = await linter.process(file);
   assert.strictEqual(result.messages.length, 1, reporter(result));
@@ -58,7 +58,7 @@ const handleError = (err) => {
 // Test that incorrectly-formatted YAML comment fails.
 (async () => {
   const file = await read(
-    new URL("./fixtures/fail-nodejs-yaml-comments.md", import.meta.url)
+    new URL("./fixtures/fail-nodejs-yaml-comments.md", import.meta.url),
   );
   const result = await linter.process(file);
   assert.strictEqual(result.messages.length, 1, reporter(result));
@@ -67,11 +67,11 @@ const handleError = (err) => {
 // Test that incorrectly-formatted markdown is turned into correctly-formatted markdown.
 (async () => {
   const file = await read(
-    new URL("./fixtures/formatting-input.md", import.meta.url)
+    new URL("./fixtures/formatting-input.md", import.meta.url),
   );
   const result = await linter.process(file);
   const expected = await fs.promises.readFile(
-    new URL("./fixtures/formatting-output.md", import.meta.url)
+    new URL("./fixtures/formatting-output.md", import.meta.url),
   );
   assert.strictEqual(result.toString(), expected.toString());
 })().then(mustCall(), handleError);

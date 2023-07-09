@@ -14,7 +14,7 @@ const allowedKeys = [
 const changesExpectedKeys = ["version", "pr-url", "description"];
 const VERSION_PLACEHOLDER = "REPLACEME";
 const MAX_SAFE_SEMVER_VERSION = semverParse(
-  Array.from({ length: 3 }, () => Number.MAX_SAFE_INTEGER).join(".")
+  Array.from({ length: 3 }, () => Number.MAX_SAFE_INTEGER).join("."),
 );
 const validVersionNumberRegex = /^v\d+\.\d+\.\d+$/;
 const prUrlRegex = new RegExp("^https://github.com/nodejs/node/pull/\\d+$");
@@ -25,7 +25,7 @@ let invalidVersionMessage = "version(s) must respect the pattern `vx.x.x` or";
 if (process.env.NODE_RELEASED_VERSIONS) {
   console.log("Using release list from env...");
   releasedVersions = process.env.NODE_RELEASED_VERSIONS.split(",").map(
-    (v) => `v${v}`
+    (v) => `v${v}`,
   );
   invalidVersionMessage = `version not listed in the changelogs, `;
 }
@@ -70,7 +70,7 @@ function areVersionsUnordered(versions) {
     if (
       semverLt(
         getValidSemver(versions[index - 1]),
-        getValidSemver(versions[index])
+        getValidSemver(versions[index]),
       )
     ) {
       return true;
@@ -91,7 +91,7 @@ function validateSecurityChange(file, node, change, index) {
     if (typeof change.commit !== "string" || isNaN(`0x${change.commit}`)) {
       file.message(
         `changes[${index}]: Ill-formed security change commit ID`,
-        node
+        node,
       );
     }
 
@@ -106,7 +106,7 @@ function validateSecurityChange(file, node, change, index) {
     file.message(
       `changes[${index}]: Invalid keys. Expected keys are: ` +
         securityChangeExpectedKeys.join(", "),
-      node
+      node,
     );
   }
 }
@@ -131,7 +131,7 @@ function validateChanges(file, node, changes) {
       file.message(
         `changes[${index}]: Invalid keys. Expected keys are: ` +
           changesExpectedKeys.join(", "),
-        node
+        node,
       );
     }
 
@@ -144,24 +144,24 @@ function validateChanges(file, node, changes) {
     if (!isAncient && !isSecurityChange && !prUrlRegex.test(change["pr-url"])) {
       file.message(
         `changes[${index}]: PR-URL does not match the expected pattern`,
-        node
+        node,
       );
     }
 
     if (typeof change.description !== "string" || !change.description.length) {
       file.message(
         `changes[${index}]: must contain a non-empty description`,
-        node
+        node,
       );
     } else if (!change.description.endsWith(".")) {
       file.message(
         `changes[${index}]: description must end with a period`,
-        node
+        node,
       );
     }
 
     changesVersions.push(
-      Array.isArray(change.version) ? change.version[0] : change.version
+      Array.isArray(change.version) ? change.version[0] : change.version,
     );
   }
 
@@ -176,7 +176,7 @@ function validateMeta(node, file, meta) {
       file.message(
         "YAML dictionary contains illegal keys. Accepted values are: " +
           allowedKeys.join(", "),
-        node
+        node,
       );
       break;
 
@@ -184,7 +184,7 @@ function validateMeta(node, file, meta) {
       file.message(
         "YAML dictionary keys should be in this order: " +
           allowedKeys.join(", "),
-        node
+        node,
       );
       break;
   }
@@ -198,7 +198,7 @@ function validateMeta(node, file, meta) {
   if (containsInvalidVersionNumber(meta.deprecated)) {
     file.message(
       `Invalid \`deprecated\` value: ${invalidVersionMessage}`,
-      node
+      node,
     );
   } else if (areVersionsUnordered(meta.deprecated)) {
     file.message("Versions in `deprecated` list are not in order", node);
@@ -220,7 +220,7 @@ function validateYAMLComments(tree, file) {
     if (node.value.startsWith("<!--YAML\n"))
       file.message(
         "Expected `<!-- YAML`, found `<!--YAML`. Please add a space",
-        node
+        node,
       );
     if (!node.value.startsWith("<!-- YAML\n")) return;
     try {
@@ -235,7 +235,7 @@ function validateYAMLComments(tree, file) {
 
 const remarkLintNodejsYamlComments = lintRule(
   "remark-lint:nodejs-yaml-comments",
-  validateYAMLComments
+  validateYAMLComments,
 );
 
 export default remarkLintNodejsYamlComments;
