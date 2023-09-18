@@ -36,7 +36,7 @@
   ],
   "dependencies": {
     "js-yaml": "^4.1.0",
-    "remark-gfm": "^3.0.1",
+    "remark-gfm": "^4.0.0",
     "remark-lint-blockquote-indentation": "^3.1.1",
     "remark-lint-checkbox-character-style": "^4.1.1",
     "remark-lint-checkbox-content-indent": "^4.1.1",
