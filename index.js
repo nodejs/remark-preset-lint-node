@@ -115,7 +115,7 @@ const plugins = [
 
 const settings = {
   emphasis: "_",
-  listItemIndent: 1,
+  listItemIndent: "one",
   tightDefinitions: true,
 };
 
