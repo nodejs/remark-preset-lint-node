@@ -26,7 +26,7 @@
     "url": "https://github.com/nodejs/remark-preset-lint-node/issues"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18.0.0"
   },
   "homepage": "https://github.com/nodejs/remark-preset-lint-node#readme",
   "files": [
