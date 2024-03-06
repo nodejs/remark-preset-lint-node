@@ -60,7 +60,7 @@
     "remark-lint-no-table-indentation": "^4.1.2",
     "remark-lint-no-tabs": "^3.1.2",
     "remark-lint-no-trailing-spaces": "^2.0.1",
-    "remark-lint-prohibited-strings": "^3.1.0",
+    "remark-lint-prohibited-strings": "^4.0.0",
     "remark-lint-rule-style": "^3.1.2",
     "remark-lint-strong-marker": "^3.1.2",
     "remark-lint-table-cell-padding": "^4.1.3",
