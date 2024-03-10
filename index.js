@@ -72,7 +72,7 @@ const plugins = [
   [remarkLintFirstHeadingLevel, 1],
   [remarkLintHeadingStyle, "atx"],
   [remarkLintListItemIndent, "space"],
-  remarkLintMaximumLineLength,
+  [remarkLintMaximumLineLength, 120],
   remarkLintNoConsecutiveBlankLines,
   remarkLintNoFileNameArticles,
   remarkLintNoFileNameConsecutiveDashes,
