@@ -46,7 +46,7 @@
     "remark-lint-fenced-code-marker": "^3.1.2",
     "remark-lint-file-extension": "^2.1.2",
     "remark-lint-final-definition": "^3.1.2",
-    "remark-lint-first-heading-level": "^3.1.2",
+    "remark-lint-first-heading-level": "^4.0.0",
     "remark-lint-heading-style": "^3.1.2",
     "remark-lint-list-item-indent": "^3.1.2",
     "remark-lint-maximum-line-length": "^3.1.3",
