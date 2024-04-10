@@ -40,7 +40,7 @@
     "remark-lint-blockquote-indentation": "^4.0.0",
     "remark-lint-checkbox-character-style": "^5.0.0",
     "remark-lint-checkbox-content-indent": "^4.1.2",
-    "remark-lint-code-block-style": "^3.1.2",
+    "remark-lint-code-block-style": "^4.0.0",
     "remark-lint-definition-spacing": "^3.1.2",
     "remark-lint-fenced-code-flag": "^4.0.0",
     "remark-lint-fenced-code-marker": "^4.0.0",
