@@ -68,7 +68,7 @@
     "remark-lint-unordered-list-marker-style": "^4.0.0",
     "remark-preset-lint-recommended": "^7.0.0",
     "semver": "^7.5.4",
-    "unified-lint-rule": "^2.1.2",
+    "unified-lint-rule": "^3.0.0",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
