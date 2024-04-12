@@ -5,11 +5,13 @@ import prettier from "eslint-plugin-prettier/recommended";
 import globals from "globals";
 
 export default [
+  {
+    ignores: ["tmp/"],
+  },
   eslint.configs.recommended,
   node.configs["flat/recommended"],
   prettier,
   {
-    ignores: ["/tmp"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
