@@ -45,7 +45,7 @@
     "remark-lint-fenced-code-flag": "^4.0.0",
     "remark-lint-fenced-code-marker": "^4.0.0",
     "remark-lint-file-extension": "^3.0.0",
-    "remark-lint-final-definition": "^3.1.2",
+    "remark-lint-final-definition": "^4.0.0",
     "remark-lint-first-heading-level": "^4.0.0",
     "remark-lint-heading-style": "^4.0.0",
     "remark-lint-list-item-indent": "^3.1.2",
