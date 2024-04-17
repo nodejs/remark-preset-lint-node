@@ -13,7 +13,6 @@ import remarkLintFileExtension from "remark-lint-file-extension";
 import remarkLintFinalDefinition from "remark-lint-final-definition";
 import remarkLintFirstHeadingLevel from "remark-lint-first-heading-level";
 import remarkLintHeadingStyle from "remark-lint-heading-style";
-import remarkLintListItemIndent from "remark-lint-list-item-indent";
 import remarkLintMaximumLineLength from "remark-lint-maximum-line-length";
 import remarkLintNoConsecutiveBlankLines from "remark-lint-no-consecutive-blank-lines";
 import remarkLintNoFileNameArticles from "remark-lint-no-file-name-articles";
@@ -71,7 +70,6 @@ const plugins = [
   remarkLintFinalDefinition,
   [remarkLintFirstHeadingLevel, 1],
   [remarkLintHeadingStyle, "atx"],
-  [remarkLintListItemIndent, "one"],
   [remarkLintMaximumLineLength, 120],
   remarkLintNoConsecutiveBlankLines,
   remarkLintNoFileNameArticles,
@@ -115,7 +113,6 @@ const plugins = [
 
 const settings = {
   emphasis: "_",
-  listItemIndent: "one",
   tightDefinitions: true,
 };
 
