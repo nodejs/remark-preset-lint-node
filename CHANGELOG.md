@@ -1,10 +1,10 @@
-## [5.0.1](https://github.com/nodejs/remark-preset-lint-node/compare/v5.0.0...v5.0.1) (2024-04-18)
+# remark-preset-lint-node Changelog
 
+## [5.0.1](https://github.com/nodejs/remark-preset-lint-node/compare/v5.0.0...v5.0.1) (2024-04-18)
 
 ### Bug Fixes
 
 * update maximum line length to 120 ([#500](https://github.com/nodejs/remark-preset-lint-node/issues/500)) ([dca7621](https://github.com/nodejs/remark-preset-lint-node/commit/dca7621a4684c10273227187745919a7f90822bf))
-
 
 ### Trivial Changes
 
