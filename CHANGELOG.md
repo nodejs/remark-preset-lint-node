@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/nodejs/remark-preset-lint-node/compare/v5.0.1...v5.0.2) (2024-04-18)
+
+
+### Trivial Changes
+
+* adjust CHANGELOG layout to conform with lint rules ([4f94306](https://github.com/nodejs/remark-preset-lint-node/commit/4f9430683908a84a2eb89366c41f7374353ce27b))
+
 # remark-preset-lint-node Changelog
 
 ## [5.0.1](https://github.com/nodejs/remark-preset-lint-node/compare/v5.0.0...v5.0.1) (2024-04-18)
