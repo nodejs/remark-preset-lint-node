@@ -3,9 +3,18 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: daily
+      interval: weekly
     open-pull-requests-limit: 10
     versioning-strategy: widen
+    groups:
+      dev:
+        dependency-type: development
+        patterns:
+          - "*"
+      prod:
+        dependency-type: production
+        patterns:
+          - "*"
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
