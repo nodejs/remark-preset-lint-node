@@ -99,6 +99,7 @@ const plugins = [
       { no: "[Nn]ote that", yes: "<nothing>" },
       { yes: "RFC" },
       { no: "[Rr][Ff][Cc]\\d+", yes: "RFC <number>" },
+      { yes: "TypeScript" },
       { yes: "Unix" },
       { yes: "Valgrind" },
       { yes: "V8" },
