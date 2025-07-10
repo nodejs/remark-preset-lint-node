@@ -62,6 +62,7 @@ const plugins = [
         "r",
         "text",
         "ts",
+        "wat",
       ],
     },
   ],
