@@ -10,7 +10,7 @@ const allowedKeys = [
   "deprecated",
   "removed",
   "changes",
-  "llmDescription",
+  "llm_description",
 ];
 const changesExpectedKeys = ["version", "pr-url", "description"];
 const VERSION_PLACEHOLDER = "REPLACEME";
