@@ -60,6 +60,7 @@ const plugins = [
         "mjs",
         "powershell",
         "r",
+        "rust",
         "text",
         "ts",
         "wat",
