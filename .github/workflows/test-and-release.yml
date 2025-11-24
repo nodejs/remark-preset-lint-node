@@ -66,9 +66,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npx --package semantic-release \
-              --package @semantic-release/git \
-              --package @semantic-release/github \
-              --package @semantic-release/npm \
-              --package @semantic-release/commit-analyzer \
+          npx --package semantic-release@25.0.2 \
+              --package @semantic-release/git@10.0.1 \
+              --package @semantic-release/github@12.0.2 \
+              --package @semantic-release/npm@13.1.2 \
+              --package @semantic-release/commit-analyzer@13.0.1 \
               semantic-release
