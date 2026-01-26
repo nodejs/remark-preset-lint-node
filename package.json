@@ -81,7 +81,7 @@
     "eslint-plugin-n": "^17.2.0",
     "eslint-plugin-prettier": "^5.0.0",
     "globals": "^17.0.0",
-    "lockfile-lint": "^4.12.1",
+    "lockfile-lint": "^5.0.0",
     "prettier": "^3.0.3",
     "remark-cli": "^12.0.0",
     "remark-parse": "^11.0.0",
