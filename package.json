@@ -35,7 +35,7 @@
     "remark-lint-nodejs-yaml-comments.js"
   ],
   "dependencies": {
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^5.2.1",
     "remark-gfm": "^4.0.0",
     "remark-lint-blockquote-indentation": "^4.0.0",
     "remark-lint-checkbox-character-style": "^5.0.0",
