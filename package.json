@@ -35,7 +35,7 @@
     "remark-lint-nodejs-yaml-comments.js"
   ],
   "dependencies": {
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^5.2.1",
     "remark-gfm": "^4.0.0",
     "remark-lint-blockquote-indentation": "^4.0.0",
     "remark-lint-checkbox-character-style": "^5.0.0",
@@ -59,7 +59,7 @@
     "remark-lint-no-table-indentation": "^5.0.0",
     "remark-lint-no-tabs": "^4.0.0",
     "remark-lint-no-trailing-spaces": "^4.0.3",
-    "remark-lint-prohibited-strings": "^4.0.0",
+    "remark-lint-prohibited-strings": "^5.0.0",
     "remark-lint-rule-style": "^4.0.0",
     "remark-lint-strong-marker": "^4.0.0",
     "remark-lint-table-cell-padding": "^5.0.0",
