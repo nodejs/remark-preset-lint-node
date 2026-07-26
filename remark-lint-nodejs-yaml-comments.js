@@ -1,4 +1,4 @@
-import yaml from "js-yaml";
+import { load } from "js-yaml";
 import { visit } from "unist-util-visit";
 import { lintRule } from "unified-lint-rule";
 import semverParse from "semver/functions/parse.js";
@@ -224,7 +224,7 @@ function validateYAMLComments(tree, file) {
       );
     if (!node.value.startsWith("<!-- YAML\n")) return;
     try {
-      const meta = yaml.load("#" + node.value.slice(0, -"-->".length));
+      const meta = load("#" + node.value.slice(0, -"-->".length));
 
       validateMeta(node, file, meta);
     } catch (e) {
