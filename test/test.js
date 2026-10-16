@@ -64,6 +64,15 @@ const handleError = (err) => {
   assert.strictEqual(result.messages.length, 1, reporter(result));
 })().then(mustCall(), handleError);
 
+// Test that YAML comments with alpha versions are ok.
+(async () => {
+  const file = await read(
+    new URL("./fixtures/ok-nodejs-yaml-comments.md", import.meta.url),
+  );
+  const result = await linter.process(file);
+  assert.strictEqual(result.messages.length, 0, reporter(result));
+})().then(mustCall(), handleError);
+
 // Test that incorrectly-formatted markdown is turned into correctly-formatted markdown.
 (async () => {
   const file = await read(

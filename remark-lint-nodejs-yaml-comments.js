@@ -16,12 +16,13 @@ const VERSION_PLACEHOLDER = "REPLACEME";
 const MAX_SAFE_SEMVER_VERSION = semverParse(
   Array.from({ length: 3 }, () => Number.MAX_SAFE_INTEGER).join("."),
 );
-const validVersionNumberRegex = /^v\d+\.\d+\.\d+$/;
+const validVersionNumberRegex = /^v\d+\.\d+\.\d+(?:-alpha\.\d+\.\d+\.\d+)?$/;
 const prUrlRegex = new RegExp("^https://github.com/nodejs/node/pull/\\d+$");
 const privatePRUrl = "https://github.com/nodejs-private/node-private/pull/";
 
 let releasedVersions;
-let invalidVersionMessage = "version(s) must respect the pattern `vx.x.x` or";
+let invalidVersionMessage =
+  "version(s) must respect the pattern `vx.x.x` or `vx.x.x-alpha.x.x.x` or";
 if (process.env.NODE_RELEASED_VERSIONS) {
   console.log("Using release list from env...");
   releasedVersions = process.env.NODE_RELEASED_VERSIONS.split(",").map(
